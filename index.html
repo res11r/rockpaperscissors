@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Rock, paper, scissors</title>
+</head>
+<body>
+<script>
+function computerPlay () {
+	var randomNumber = Math.random()*3;
+	var roundedNumber = Math.floor(randomNumber);
+	if (roundedNumber ==  1) { return 'rock';}
+	else if (roundedNumber == 2) { return 'paper';}
+	else {return 'scissors';}
+	
+}
+
+
+var playerSelection;
+var computerSelection;
+
+
+function playRound(playerSelection, computerSelection) {
+
+computerSelection = computerPlay();
+playerSelection = prompt("Choose rock, paper or scissors").toLowerCase();
+if (playerSelection==='rock' && computerSelection==='rock') {
+	return "Draw of rock";}
+else if (playerSelection==='rock' && computerSelection==='scissors') {
+	return "You win! Rock beats scissors";}
+else if (playerSelection==='rock' && computerSelection==='paper') {
+	return "You lose! Paper beats rock";}
+else if (playerSelection==='paper' && computerSelection==='rock') {
+	return "You win! Paper beats rock";}
+else if (playerSelection==='paper' && computerSelection==='scissors') {
+	return "You lose! Scissors beats paper";}
+else if (playerSelection==='paper' && computerSelection==='paper') {
+	return "Draw of paper";}
+else if (playerSelection==='scissors' && computerSelection==='rock') {
+	return "You lose! Rock beats scissors";}
+else if (playerSelection==='scissors' && computerSelection==='scissors') {
+	return "Draw of scissors";}
+else if (playerSelection==='scissors' && computerSelection==='paper') {
+	return "You win! Scissors beats paper";}
+
+}
+
+var result;
+
+
+ function game() {
+ 
+	for (i=0, playerWins=0, computerWins=0, draw=0; i<5;i++) {
+	result = playRound();
+   if (result==="You win! Rock beats scissors" ||result==="You win! Paper beats rock" ||result==="You win! Scissors beats paper") {
+			console.log(result); playerWins++;}
+		else if (result==="You lose! Paper beats rock" ||result==="You lose! Scissors beats paper" ||result==="You lose! Rock beats scissors"){
+		console.log(result);computerWins++; } 
+		else { console.log(result); i--;}
+	
+		} 
+if (computerWins>playerWins) {console.log("Computer wins");}
+else {console.log("You win");}
+console.log("You won ",playerWins,"games. Computer won ",computerWins,"games."); 
+		
+	}
+
+</script>
+
+
+</body>
+</html>
+
