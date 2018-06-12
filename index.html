@@ -1,9 +1,17 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Rock, paper, scissors</title>
 </head>
 <body>
+	<button id="rock">Rock</button>
+	<button id="paper">Paper</button>
+	<button id="scissors">Scissors</button>
+	<div id="score"></div>
+	<div id="results"><Result:
+		<p></p>
+	</div>
 <script>
 function computerPlay () {
 	var randomNumber = Math.random()*3;
@@ -19,10 +27,10 @@ var playerSelection;
 var computerSelection;
 
 
-function playRound(playerSelection, computerSelection) {
+function playRound (playerSelection, computerSelection) {
 
 computerSelection = computerPlay();
-playerSelection = prompt("Choose rock, paper or scissors").toLowerCase();
+
 if (playerSelection==='rock' && computerSelection==='rock') {
 	return "Draw of rock";}
 else if (playerSelection==='rock' && computerSelection==='scissors') {
@@ -43,8 +51,83 @@ else if (playerSelection==='scissors' && computerSelection==='paper') {
 	return "You win! Scissors beats paper";}
 
 }
-
+var playerWins=0;
+var computerWins=0;
 var result;
+var rock = document.querySelector('#rock');
+var paper = document.querySelector('#paper');
+var scissors = document.querySelector('#scissors');
+
+
+rock.addEventListener("click", function () {
+	 
+var p = document.querySelector('p');
+	var div = document.querySelector("#results");
+	var score = document.querySelector("#score");
+	p.textContent = playRound('rock');
+	if (p.textContent==="You win! Rock beats scissors") { playerWins++; }
+ else   if (p.textContent==="You lose! Paper beats rock") { computerWins++; }
+ 	if (playerWins==5){
+	p.textContent = "Player wins! Click on rock, paper or scissors to restart the game";
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+	 playerWins=0;
+	 computerWins=0;
+} else if (computerWins==5) { 
+	p.textContent = "Computer wins! Click on rock, paper or scissors to restart the game";
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+	 playerWins=0;
+	 computerWins=0;
+} else {
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+} 
+});
+paper.addEventListener("click", function () {
+	   
+	var p = document.querySelector('p');
+	var div = document.querySelector("#results");
+ var score = document.querySelector("#score");
+	p.textContent = playRound('paper');
+
+	if (p.textContent==="You win! Paper beats rock") {  playerWins++; }
+	else if (p.textContent==="You lose! Scissors beats paper") { computerWins++; }
+		if (playerWins==5){
+	p.textContent = "Player wins! Click on rock, paper or scissors to restart the game";
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+	 playerWins=0;
+	 computerWins=0;
+} else if (computerWins==5) { 
+	p.textContent = "Computer wins! Click on rock, paper or scissors to restart the game";
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+	 playerWins=0;
+	 computerWins=0;
+} else {
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+	 
+}
+});
+scissors.addEventListener("click", function () {
+
+	var p = document.querySelector('p');
+	var div = document.querySelector("#results");
+	 var score = document.querySelector("#score");
+	p.textContent = playRound('scissors');
+
+	if (p.textContent==="You win! Scissors beats paper") { playerWins++; }
+	else if (p.textContent==="You lose! Rock beats scissors") { computerWins++; }
+	if (playerWins==5){
+	p.textContent = "Player wins! Click on rock, paper or scissors to restart the game";
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+	 playerWins=0;
+	 computerWins=0;
+} else if (computerWins==5) { 
+	p.textContent = "Computer wins! Click on rock, paper or scissors to restart the game";
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+	 playerWins=0;
+	 computerWins=0;
+} else {
+	 score.textContent = "Score:  Player "+playerWins+", computer "+ computerWins;
+}
+});
 
 
  function game() {

@@ -1,1 +1,2 @@
 My first web console script. Game is a best of five where draws don't count (game has to continue until rounds won + rounds lost = 5). Code needs some tidying.
+Update: Added a barebones GUI to the game, featuring simple buttons. The game resets once the player or the computer wins 5 rounds.
